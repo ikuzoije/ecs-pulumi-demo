@@ -1,0 +1,11 @@
+name: pulumi-infra
+description: ECS Demo application deployment
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python

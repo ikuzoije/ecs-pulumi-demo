@@ -1,0 +1,4 @@
+config:
+  aws:region: us-east-1
+  app:version: 1.0.0
+  app:name: pulumi-infra
