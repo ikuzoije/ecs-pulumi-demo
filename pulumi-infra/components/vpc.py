@@ -18,7 +18,7 @@ def create_vpc(name: str, cidr_block: str, tags: dict, public_subnet_cidrs: list
         availability_zone=azs[i],
         map_public_ip_on_launch=True,
         tags={
-            "Name": f"public-subnet-{ "a" if "a" in azs[i] else "b" }",
+            "Name": f"public-subnet-{ 'a' if 'a' in azs[i] else 'b' }",
         },
         opts=ResourceOptions(parent=vpc)
     ) for i in range(len(public_subnet_cidrs))]
@@ -27,7 +27,7 @@ def create_vpc(name: str, cidr_block: str, tags: dict, public_subnet_cidrs: list
         f"{name}-public-route-table",
         vpc_id=vpc.id,
         tags={
-            "Name": f"public-route-table-{ "a" if "a" in azs[0] else "b" }",
+            "Name": f"public-route-table-{ 'a' if 'a' in azs[0] else 'b' }",
         },
         opts=ResourceOptions(parent=vpc)
     )
@@ -46,7 +46,7 @@ def create_vpc(name: str, cidr_block: str, tags: dict, public_subnet_cidrs: list
             route_table_id=public_route_table.id,
             opts=ResourceOptions(parent=public_route_table)
         )
-    
+
     route_table_route_igw = Route(
         f"{name}-public-route-table-route-igw",
         route_table_id=public_route_table.id,
