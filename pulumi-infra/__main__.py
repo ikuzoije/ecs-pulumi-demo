@@ -55,3 +55,5 @@ setup_ecs_cluster(
     region=aws_region,
     target_group_arn=app_alb["target_group"].arn
 )
+
+pulumi.export("app_endpoint", app_alb["load_balancer"].dns_name)
